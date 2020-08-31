@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/FirstClounProj/.vs/FirstClounProj
+/FirstClounProj/FirstClounProj/bin/Debug/netcoreapp3.1
+/FirstClounProj/FirstClounProj/obj
