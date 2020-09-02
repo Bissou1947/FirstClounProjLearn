@@ -11,5 +11,10 @@ namespace FirstClounProj.Controllers
         public string Index() {
             return "hi from home index method.";
         }
+        public string About(int id)
+        {
+            return $"the id is {id}";
+        }
+
     }
 }

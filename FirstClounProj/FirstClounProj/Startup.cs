@@ -35,6 +35,15 @@ namespace FirstClounProj
                 Endpoint.MapDefaultControllerRoute();
             });
 
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.Map("/Finish", async context =>
+            //    {
+            //        await context.Response.WriteAsync("finish");
+            //    });
+            //});
+
             //app.Use(async (context,next) => {
             //    await context.Response.WriteAsync("First");
             //    await next();
@@ -65,14 +74,6 @@ namespace FirstClounProj
             //            await context.Response.WriteAsync("Yes it i Production");
             //        }
 
-            //    });
-            //});
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.Map("/Finish", async context =>
-            //    {
-            //        await context.Response.WriteAsync("finish");
             //    });
             //});
 
