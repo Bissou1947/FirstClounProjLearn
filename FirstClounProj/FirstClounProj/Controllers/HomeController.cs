@@ -8,13 +8,19 @@ namespace FirstClounProj.Controllers
 {
     public class HomeController: Controller
     {
-        public string Index() {
-            return "hi from home index method.";
+        public ViewResult Index() {
+            return View();
         }
-        public string About(int id)
+
+        public ViewResult About()
         {
-            return $"the id is {id}";
+            return View();
         }
+
+        //public string About(int id)
+        //{
+        //    return $"the id is {id}";
+        //}
 
     }
 }
