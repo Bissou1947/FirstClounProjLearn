@@ -9,7 +9,8 @@ namespace FirstClounProj.Controllers
     public class HomeController: Controller
     {
         public ViewResult Index() {
-            return View("~/OtherViewessource/OutView.cshtml");
+            return View();
+            //return View("~/OtherViewessource/OutView.cshtml");
             //return View("/OtherViewessource/OutView.cshtml");
             //return View("../../OtherViewessource/OutView");
             //var data = new {id=1,name="bassil"};
