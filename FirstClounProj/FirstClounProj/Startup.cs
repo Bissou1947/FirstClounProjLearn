@@ -32,10 +32,11 @@ namespace FirstClounProj
             }
 
             app.UseStaticFiles(); //...for telling program to use static files(css,js,img...) from wwwroot
-            app.UseStaticFiles(new StaticFileOptions() {
-              FileProvider=new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),"MyStaticFiles")),
-              RequestPath= "/MyStaticFiles"
-            });//...for telling program to use static files(css,js,img...) not from wwwroot from another file
+           
+            //app.UseStaticFiles(new StaticFileOptions() {
+            //  FileProvider=new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),"MyStaticFiles")),
+            //  RequestPath= "/MyStaticFiles"
+            //});//...for telling program to use static files(css,js,img...) not from wwwroot from another file
           
             app.UseRouting();
 

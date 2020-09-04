@@ -9,15 +9,25 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="~/css/Site.css" rel="stylesheet" />
 </head>
-<body>
-    @*<img src="~/images/logo.png" alt="logo" class="logo"/> room wwwroot folder-default root content folder *@
-
+<body class="container">
+    <img src="~/images/logo.png" alt="logo" class="logo" />@* from wwwroot folder-default root content folder *@
+    <button class="btn btn-danger">Click me!</button>
+    <input type="button" value="Click me!" class="btn btn-secondary" />
     @*<img src="../MyStaticFiles/Images/logo.png"> OR dawn*@
-    <img src="~/MyStaticFiles/Images/logo.png">
+    @*<img src="~/MyStaticFiles/Images/logo.png">*@
 
     <p>Home>Index>View</p>
-    <h1>hi from home index method</h1>
+    <h1 class="h1">hi from home index method</h1>
+
+    <script src="~/lib/jquery/jquery.js"></script>
 </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+        alert("Welcome");
+    });
+</script>
