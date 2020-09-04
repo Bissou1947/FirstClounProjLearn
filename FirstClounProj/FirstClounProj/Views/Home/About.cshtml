@@ -1,84 +1,14 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    Layout = "_Layout";
 }
 
-<!DOCTYPE html>
+<img src="~/images/logo.png" alt="logo" class="logo" />
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>About</title>
-</head>
-<body>
-    <p>Home>About>View</p>
-
-    <h1>hi from home About method</h1>
-
-    <h1>signle-backend code:</h1>
-    <h3>@DateTime.Now.ToString("dd-MM-yyyy")</h3>
-    <h3>Sum= @(5 + 9)</h3>
-
-    <h1>Multi-backend code:</h1>
-    @{
-        int a = 10;
-        int b = 15;
-        int c = a + b;
-    }
-    <h3>Sum= @c</h3>
-
-    <h3>My email - Bissou@html.com</h3>
-
-    <h3>My email - @@html.com - escape sequence - razor viewengin is intelegent</h3>
-
-    @{
-        int d = 10;
-    }
-
-    @if (d < 10)
-    {
-        d++;
-        <h3>from if block: @d</h3>
-    }
-    else if (d == 10)
-    {
-        <h3>from else if block: @d</h3>
-    }
-    else
-    {
-        <h3>from else block: @d</h3>
-    }
-
-    @{
-        int e = 100;
-        int f = 0;
-    }
-    <h3>check Ternary e value - @(e == 10 ? f = 15 : f = 20)</h3>
-    <h3>Ternary f value - @f</h3>
+<h1 class="h1">Welcome from Home About View.</h1>
 
 
-    @{
-        int g = 10;
-    }
-    @switch (g)
-    {
-        case 10:<h3>g value from switch - @g</h3> break;
-        case 50:<h3>g value from switch - @g</h3> break;
-        case 100:<h3>g value from switch - @g</h3> break;
-        default:<h3>bye</h3>break;
-}
 
 
-    @for (int i = 0; i < 3; i++)
-    {
-        <h3>for loop: @i </h3>
-    }
-    @{ 
-        var intList = new List<int>() {1,2,3,4 };
-    }
-    @foreach (var item in intList)
-    {
-        <h3>loop from foreach : @item</h3>
-    }
-</body>
-</html>
+
+
+

@@ -10,29 +10,14 @@ namespace FirstClounProj.Controllers
     {
         public ViewResult Index() {
             return View();
-            //return View("~/OtherViewessource/OutView.cshtml");
-            //return View("/OtherViewessource/OutView.cshtml");
-            //return View("../../OtherViewessource/OutView");
-            //var data = new {id=1,name="bassil"};
-            //return View(data);
-            //return View(data,"About");
-            //return View();
         }
-
         public ViewResult About()
         {
             return View();
         }
-
         public ViewResult Contact()
         {
             return View();
         }
-
-        //public string About(int id)
-        //{
-        //    return $"the id is {id}";
-        //}
-
     }
 }
