@@ -21,6 +21,12 @@ namespace FirstClounProj
             //services.AddMvc(); .......................for mvc architict
             //services.AddControllers(); ............... for API architict
             services.AddControllersWithViews(); //........use this for now
+
+#if DEBUG  //this if code just to applay on development environment, another will applay on all environment which makes pgm bad performence
+            // this code just for development environment(debug mode)
+            //change from debu to release in debuging up to see if work
+            services.AddRazorPages().AddRazorRuntimeCompilation(); // to make razor compilation take place in compliation pgm , for accept any chage in view pages without build pgm again and again
+#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
