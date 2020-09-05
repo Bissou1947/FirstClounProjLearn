@@ -12,8 +12,8 @@
         <div><h1>Hi from Layout page.</h1></div>
         @RenderBody()
     </div>*@
-    <header class="my-5">
-        <nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top p-3">
+    <header>
+        <nav  class="navbar navbar-expand-lg navbar-dark bg-dark p-3 fixed-top">
             <a class="navbar-brand" href="/">
                 <img src="/images/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                 Core MVC
@@ -60,8 +60,16 @@
           </div>
         </nav>
     </header>
+
     <main role="main">
         @RenderBody()
     </main>
+
+    <footer class="text-center text-muted bg-primary p-3">
+        <div class="container text-white">
+            &copy;Bissou-@DateTime.Now.Year
+        </div>
+    </footer>
+
 </body>
 </html>
