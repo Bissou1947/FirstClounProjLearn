@@ -18,7 +18,7 @@ namespace FirstClounProj.Controllers
         public ViewResult GetALlBooks()
         {
             var bookList = _newBookRepository.GetALlBooks();
-            return View();
+            return View(bookList);
         }
 
         public BookModel GetBookById(int id)
