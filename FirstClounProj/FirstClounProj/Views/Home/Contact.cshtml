@@ -2,7 +2,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<img src="~/images/logo.png" alt="logo" class="logo" />*@
-    <div class="container">
-        <h1 class="h1">Welcome from Home>Contact View</h1>
-    </div>
+@section BreadCrumb{
+    <nav aria-label="BreadCrumb">
+        <ol class="breadcrumb mb-0 bg-white">
+            <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+        </ol>
+    </nav>
+}
+
+<div class="container">
+    <h1 class="h1">Welcome from Home>Contact View</h1>
+</div>

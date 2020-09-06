@@ -2,7 +2,16 @@
     Layout = "_Layout";
 }
 
-<section class="jumbotron text-center mb-0">
+@section BreadCrumb{ 
+    <nav aria-label="BreadCrumb">
+        <ol class="breadcrumb mb-0 bg-white">
+            <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Index</li>
+        </ol>
+    </nav>
+}
+
+<section class="jumbotron text-center my-0">
     <div class="container py-5">
         <h1 class="h1">Welcome from Home>Index View</h1>
         <p class="lead text-muted">
@@ -65,3 +74,11 @@
     </div>
 </div>
 
+
+@section HomeIndexScripts{ 
+    <script>
+    $(document).ready(function(){
+        alert("hi from home index view");
+    });
+</script>
+}
