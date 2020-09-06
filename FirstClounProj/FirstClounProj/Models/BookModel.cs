@@ -11,5 +11,8 @@ namespace FirstClounProj.Models
         public string bookTitle { get; set; }
         public string bookAuthor { get; set; }
         public string bookDescription { get; set; }
+        public string bookCategory { get; set; }
+        public int bookTotalPages { get; set; }
+        public string bookLanguage { get; set; }
     }
 }

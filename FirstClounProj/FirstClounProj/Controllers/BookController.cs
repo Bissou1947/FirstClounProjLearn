@@ -21,9 +21,10 @@ namespace FirstClounProj.Controllers
             return View(bookList);
         }
 
-        public BookModel GetBookById(int id)
+        public ViewResult GetBookById(int id)
         {
-            return _newBookRepository.GetBookById(id);
+            var bookById = _newBookRepository.GetBookById(id);
+            return View(bookById);
         }
 
         public List<BookModel> SearchBook(string title, string authorName)
