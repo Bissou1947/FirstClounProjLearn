@@ -10,6 +10,11 @@ namespace FirstClounProj.Controllers
 {
     public class HomeController: Controller
     {
+        [ViewData]
+        public string Title { get; set; }
+        [ViewData]
+        public BookModel bookData { get; set; }
+
         public ViewResult Index() {
             return View();
         }
@@ -39,5 +44,12 @@ namespace FirstClounProj.Controllers
 
             return View();
         }
+        public ViewResult ViewDataAttribute()
+        {
+            Title = "ViewDataAttribute";
+            bookData = new BookModel() {bookAuthor= "bookData" };
+            return View();
+        }
+
     }
 }

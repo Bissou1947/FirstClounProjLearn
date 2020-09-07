@@ -1,0 +1,18 @@
+﻿@{
+    var cast = ViewData["bookData"] as BookModel;
+}
+
+@section BreadCrumb{
+    <nav aria-label="BreadCrumb">
+        <ol class="breadcrumb mb-0 bg-white">
+            <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">View-Data-Attribute</li>
+        </ol>
+    </nav>
+}
+
+<div class="container">
+    <h1 class="h1">Welcome from Home>ViewDataAttribute View</h1>
+    <h3>Hi from View Data Attribute 1 and have value:@cast.bookAuthor</h3>
+
+</div>
