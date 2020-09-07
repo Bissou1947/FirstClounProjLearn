@@ -20,26 +20,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="/Home/About">About<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" asp-controller="Home" asp-action="About">About<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Home/Contact">Contact<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Home/ViewDataAttribute">ViewDataAttribute<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" asp-controller="Home" asp-action="ViewDataAttribute">ViewDataAttribute<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Books
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/Book/GetALlBooks">All Books</a>
+                            <a class="dropdown-item" asp-controller="Book" asp-action="GetALlBooks">All Books</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/Book/TestDynamicView">Test Dynamic View</a>
+                            <a class="dropdown-item" asp-controller="Book" asp-action="TestDynamicView">Test Dynamic View</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>

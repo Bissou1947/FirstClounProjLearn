@@ -18,9 +18,7 @@ namespace FirstClounProj
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddMvc(); .......................for mvc architict
-            //services.AddControllers(); ............... for API architict
-            services.AddControllersWithViews(); //........use this for now
+            services.AddControllersWithViews();
 
 #if DEBUG  //this if code just to applay on development environment, another will applay on all environment which makes pgm bad performence
             // this code just for development environment(debug mode)
@@ -38,61 +36,16 @@ namespace FirstClounProj
             }
 
             app.UseStaticFiles(); //...for telling program to use static files(css,js,img...) from wwwroot
-           
-            //app.UseStaticFiles(new StaticFileOptions() {
-            //  FileProvider=new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),"MyStaticFiles")),
-            //  RequestPath= "/MyStaticFiles"
-            //});//...for telling program to use static files(css,js,img...) not from wwwroot from another file
-          
             app.UseRouting();
 
             app.UseEndpoints(endpoint=> {
                 endpoint.MapDefaultControllerRoute();
+                // for testing f url and navigation is correct een if we type anything befor controler in url
+                //endpoint.MapControllerRoute(
+                //name: "Default",
+                //pattern: "FirstCorMVCProj/{controller=Home}/{action=Index}/{id?}"
+                //);
             });
-
-
-            //for learning comments.............
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.Map("/Finish", async context =>
-            //    {
-            //        await context.Response.WriteAsync("finish");
-            //    });
-            //});
-
-            //app.Use(async (context,next) => {
-            //    await context.Response.WriteAsync("First");
-            //    await next();
-            //    await context.Response.WriteAsync(" First First");
-            //});
-            //app.Use(async (context, next) => {
-            //    await context.Response.WriteAsync(" Second");
-            //    await next();
-            //    await context.Response.WriteAsync(" Second Second");
-            //});
-            //app.Use(async (context, next) => {
-            //    await context.Response.WriteAsync(" Third");
-            //    await next();
-            //});
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.Map("/", async context =>
-            //    {
-            //        //await context.Response.WriteAsync(env.EnvironmentName);
-
-            //        if (env.IsDevelopment())
-            //        {
-            //            await context.Response.WriteAsync("IsDevelopment");
-            //        }
-            //        else if (env.IsEnvironment("Production"))
-            //        {
-            //            await context.Response.WriteAsync("Yes it i Production");
-            //        }
-
-            //    });
-            //});
 
         }
     }

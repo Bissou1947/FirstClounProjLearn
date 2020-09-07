@@ -21,8 +21,8 @@ namespace FirstClounProj.Controllers
             var bookList = _newBookRepository.GetALlBooks();
             return View(bookList);
         }
-
-        public ViewResult GetBookById(int id)
+        [Route("BookDetails",Name = "BookDetails")]
+        public ViewResult GetBookById(int id,string nameBook)
         {
             var bookById = _newBookRepository.GetBookById(id);
             return View(bookById);

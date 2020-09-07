@@ -5,13 +5,27 @@
 @section BreadCrumb{
     <nav aria-label="BreadCrumb">
         <ol class="breadcrumb mb-0 bg-white">
-            <li class="breadcrumb-item"><a href="/Book/GetALlBooks">Book</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Get All Books</li>
+            <li class="breadcrumb-item"><a href="/Book/GetALlBooks">Books</a></li>
+            <li class="breadcrumb-item active" aria-current="page">All Books</li>
         </ol>
     </nav>
 }
 <div class="pt-5 pb-4  mb-0 bg-light">
     <h1 class="h1 text-muted text-center display-4">All Books</h1>
+    <div class="text-center m-0">
+      
+        <a asp-controller="Book" asp-action="TestDynamicView"
+           asp-fragment="TestFregment"
+           class="btn btn-sm btn-outline-secondary">
+            fragment Anchor try click and see the URL
+        </a>
+
+        <a asp-controller="Book" asp-action="TestDynamicView"
+           asp-protocol="http" asp-host="FirstClounProj.com"
+           class="btn btn-sm btn-outline-secondary">
+            protocol and Host try click and see the URL in inspect page
+        </a>
+    </div>
     <div class="container py-5">
         <div class="row">
             @foreach (var item in Model)
@@ -24,7 +38,10 @@
                             <p class="card-text">@item.bookDescription</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="/Book/GetBookById/@item.bookId" class="btn btn-sm btn-outline-secondary">View details</a>
+                                    <a  asp-route="BookDetails" asp-route-id="@item.bookId"
+                                       asp-route-nameBook="@item.bookTitle"
+                                       class="btn btn-sm btn-outline-secondary">View details
+                                    </a>
                                 </div>
                                 <small class="text-muted">@item.bookAuthor</small>
                             </div>
