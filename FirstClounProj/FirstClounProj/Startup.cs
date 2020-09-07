@@ -46,8 +46,8 @@ namespace FirstClounProj
           
             app.UseRouting();
 
-            app.UseEndpoints(Endpoint=> {
-                Endpoint.MapDefaultControllerRoute();
+            app.UseEndpoints(endpoint=> {
+                endpoint.MapDefaultControllerRoute();
             });
 
 
