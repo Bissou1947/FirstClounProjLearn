@@ -1,5 +1,7 @@
 ﻿@model BookModel
-
+@{
+    ViewData["Title"] = "Book-"+Model.bookTitle;
+}
 @section BreadCrumb{
     <nav aria-label="BreadCrumb">
         <ol class="breadcrumb mb-0 bg-white">
@@ -53,7 +55,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                     @Model.bookDescription     
+                    @Model.bookDescription
                 </div>
             </div>
             <div class="row">

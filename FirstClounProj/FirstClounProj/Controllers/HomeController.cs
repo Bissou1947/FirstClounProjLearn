@@ -28,6 +28,15 @@ namespace FirstClounProj.Controllers
         }
         public ViewResult Contact()
         {
+            ViewData["name1"] = "ViewData";
+
+            dynamic data = new ExpandoObject();
+            data.id = 5;
+            data.name = "ViewData";
+            ViewData["name3"] = data;
+
+            ViewData["name2"] = new BookModel() { bookAuthor= "ViewData" };
+
             return View();
         }
     }

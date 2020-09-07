@@ -1,4 +1,8 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Contact";
+    var viewDataCast = ViewData["name2"] as BookModel;
+    dynamic obj = ViewData["name3"];
+}
 @section BreadCrumb{
     <nav aria-label="BreadCrumb">
         <ol class="breadcrumb mb-0 bg-white">
@@ -10,4 +14,10 @@
 
 <div class="container">
     <h1 class="h1">Welcome from Home>Contact View</h1>
+    <h3>Welcome from ViewData 1 with value: @ViewData["name1"]</h3>
+    <h3>
+        hi from ViewData 2 and have dunamic objects with casting,so we use expand object in its action methode,
+        and its have values id:@obj.id and name:@obj.name
+    </h3>
+    <h3>hi from ViewData 3 and we pass object to it with casting, and have value Name: @viewDataCast.bookAuthor </h3>
 </div>

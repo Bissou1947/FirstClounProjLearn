@@ -1,5 +1,7 @@
-﻿
-@section BreadCrumb{ 
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@section BreadCrumb{
     <nav aria-label="BreadCrumb">
         <ol class="breadcrumb mb-0 bg-white">
             <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
@@ -12,11 +14,11 @@
     <div class="container py-5">
         <h1 class="h1">Welcome from Home>Index View</h1>
         <p class="lead text-muted">
-            Bootstrap is a free and open-source CSS framework directed at responsive, 
-            mobile-first front-end web development. It contains CSS- and JavaScript-based 
+            Bootstrap is a free and open-source CSS framework directed at responsive,
+            mobile-first front-end web development. It contains CSS- and JavaScript-based
             design templates for typography, forms, buttons, navigation, and other interface components.
         </p>
-        <p> 
+        <p>
             <a href="#" class="btn btn-primary">Welcome</a>
         </p>
     </div>
@@ -72,10 +74,10 @@
 </div>
 
 
-@section HomeIndexScripts{ 
+@section HomeIndexScripts{
     <script>
-    $(document).ready(function(){
-        //alert("hi from home index view");
-    });
-</script>
+        $(document).ready(function () {
+            //alert("hi from home index view");
+        });
+    </script>
 }
