@@ -58,6 +58,26 @@
             <span asp-validation-for="bookDescription" class="text-danger"></span>
         </div>
         <div class="form-group">
+            <label asp-for="createdDate"></label>
+            <input asp-for="createdDate" class="form-control"/>
+            <span asp-validation-for="createdDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="updateDate"></label>
+            <input asp-for="updateDate" class="form-control"/>
+            <span asp-validation-for="updateDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control"/>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control"/>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
             <input type="submit" value="Add New Book" class="btn btn-outline-success"/>
         </div>
     </form>

@@ -31,7 +31,18 @@ namespace FirstClounProj.Models
         [Required]
         [Display(Name = "Book Language")]
         public string bookLanguage { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime? createdDate { get; set; }
+        [DataType(DataType.DateTime)]
         public DateTime? updateDate { get; set; }
+
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        [Display(Name ="Email")]
+        [EmailAddress]
+        public string Email { get; set; }
     }
 }
