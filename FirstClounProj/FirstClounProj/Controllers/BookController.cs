@@ -12,8 +12,23 @@ namespace FirstClounProj.Controllers
     public class BookController : Controller
     {
         private readonly BookRepository _newBookRepository = null;
-        public BookController() {
-            _newBookRepository = new BookRepository();
+        public BookController(BookRepository bookRepository) {
+            _newBookRepository = bookRepository;
+        }
+        public ViewResult AddNewBook(bool check=false,int bookId=0)
+        {
+            ViewBag.CheckSuccess = check;
+            ViewBag.GetBookId = bookId;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddNewBook(BookModel NewBook)
+        {
+            int value=_newBookRepository.AddNewBook(NewBook);
+            if (value>0) {
+                return RedirectToAction("AddNewBook",new { check=true, bookId=value });
+            }
+            return View();
         }
 
         public ViewResult GetALlBooks()
@@ -40,17 +55,6 @@ namespace FirstClounProj.Controllers
             data.book = _newBookRepository.GetBookById(1);
             data.name = "Bissou";
             return View(data);
-        }
-
-        public ViewResult AddNewBook() {
-
-            return View();
-        }
-        [HttpPost]
-        public ViewResult AddNewBook(BookModel NewBook)
-        {
-
-            return View();
         }
     }
 }

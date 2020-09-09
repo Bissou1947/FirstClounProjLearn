@@ -1,4 +1,5 @@
-﻿using FirstClounProj.Models;
+﻿using FirstClounProj.Data;
+using FirstClounProj.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,26 @@ namespace FirstClounProj.Repository
 {
     public class BookRepository
     {
+        private readonly FirstClounProjDbContext _context = null;
+        public BookRepository(FirstClounProjDbContext context) {
+            _context = context;
+        }
+        public int AddNewBook(BookModel NewBook)
+        {
+            var newB = new Books() { 
+            bookAuthor=NewBook.bookAuthor,
+            bookCategory=NewBook.bookCategory,
+            bookDescription=NewBook.bookDescription,
+            bookLanguage=NewBook.bookLanguage,
+            bookTitle=NewBook.bookTitle,
+            bookTotalPages=NewBook.bookTotalPages,
+            createdDate=DateTime.UtcNow,
+            updateDate=DateTime.UtcNow
+            };
+            _context.Books.Add(newB);
+            _context.SaveChanges();
+            return newB.bookId;
+        }
         public List<BookModel> GetALlBooks() {
             return SourceOfInformattions();
         }
