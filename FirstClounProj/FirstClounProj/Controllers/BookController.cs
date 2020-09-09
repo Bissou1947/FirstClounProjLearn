@@ -22,9 +22,9 @@ namespace FirstClounProj.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddNewBook(BookModel NewBook)
+        public async Task<IActionResult> AddNewBook(BookModel NewBook)
         {
-            int value=_newBookRepository.AddNewBook(NewBook);
+            int value=await _newBookRepository.AddNewBook(NewBook);
             if (value>0) {
                 return RedirectToAction("AddNewBook",new { check=true, bookId=value });
             }

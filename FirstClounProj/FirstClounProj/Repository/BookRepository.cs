@@ -13,7 +13,7 @@ namespace FirstClounProj.Repository
         public BookRepository(FirstClounProjDbContext context) {
             _context = context;
         }
-        public int AddNewBook(BookModel NewBook)
+        public async Task<int> AddNewBook(BookModel NewBook)
         {
             var newB = new Books() { 
             bookAuthor=NewBook.bookAuthor,
@@ -25,9 +25,9 @@ namespace FirstClounProj.Repository
             createdDate=DateTime.UtcNow,
             updateDate=DateTime.UtcNow
             };
-            _context.Books.Add(newB);
-            _context.SaveChanges();
-            return newB.bookId;
+           await _context.Books.AddAsync(newB);
+           await _context.SaveChangesAsync();
+           return newB.bookId;
         }
         public List<BookModel> GetALlBooks() {
             return SourceOfInformattions();
