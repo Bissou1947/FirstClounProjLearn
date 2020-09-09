@@ -42,5 +42,15 @@ namespace FirstClounProj.Controllers
             return View(data);
         }
 
+        public ViewResult AddNewBook() {
+
+            return View();
+        }
+        [HttpPost]
+        public ViewResult AddNewBook(BookModel NewBook)
+        {
+
+            return View();
+        }
     }
 }

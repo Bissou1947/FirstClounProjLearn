@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FirstClounProj.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
@@ -18,6 +20,11 @@ namespace FirstClounProj
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //we use code first approche
+            //this used to navigate to some data base by connection string
+            services.AddDbContext<FirstClounProjDbContext>(options =>
+             options.UseSqlServer("Server =.; Database = FirstClounProjDb; Integrated Security = True;")); // to use dbContext in data file
+            
             services.AddControllersWithViews();
 
 #if DEBUG  //this if code just to applay on development environment, another will applay on all environment which makes pgm bad performence
