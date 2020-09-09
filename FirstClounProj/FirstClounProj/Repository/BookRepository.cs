@@ -1,5 +1,6 @@
 ﻿using FirstClounProj.Data;
 using FirstClounProj.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,13 +30,49 @@ namespace FirstClounProj.Repository
            await _context.SaveChangesAsync();
            return newB.bookId;
         }
-        public List<BookModel> GetALlBooks() {
-            return SourceOfInformattions();
+        public async Task<List<BookModel>> GetALlBooks() {
+            var booksToBookModel = new List<BookModel>();
+            var allBooksDB =await _context.Books.ToListAsync();
+            if (allBooksDB?.Any() == true) {
+                foreach (var book in allBooksDB)
+                {
+                    booksToBookModel.Add(new BookModel()
+                    {
+                        bookId=book.bookId,
+                        bookAuthor = book.bookAuthor,
+                        bookCategory = book.bookCategory,
+                        bookDescription = book.bookDescription,
+                        bookLanguage = book.bookLanguage,
+                        bookTitle = book.bookTitle,
+                        bookTotalPages = book.bookTotalPages,
+                        createdDate = book.createdDate,
+                        updateDate = book.updateDate
+                    }
+                    );
+                }
+                return booksToBookModel;
+            }
+            return null;
         }
 
-        public BookModel GetBookById(int id)
+        public async Task<BookModel> GetBookById(int id)
         {
-            return SourceOfInformattions().Where(a => a.bookId == id).FirstOrDefault();
+            var getBookDB = await _context.Books.FindAsync(id);
+            if (getBookDB != null) {
+                var booksToBookModel = new BookModel()
+                {   bookId = getBookDB.bookId,
+                    bookAuthor = getBookDB.bookAuthor,
+                    bookCategory = getBookDB.bookCategory,
+                    bookDescription = getBookDB.bookDescription,
+                    bookLanguage = getBookDB.bookLanguage,
+                    bookTitle = getBookDB.bookTitle,
+                    bookTotalPages = getBookDB.bookTotalPages,
+                    createdDate = getBookDB.createdDate,
+                    updateDate = getBookDB.updateDate
+                };
+                return booksToBookModel;
+            }
+            return null;
         }
 
         public List<BookModel> SearchBook(string title,string authorName)

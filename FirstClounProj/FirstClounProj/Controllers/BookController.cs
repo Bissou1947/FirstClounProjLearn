@@ -31,15 +31,15 @@ namespace FirstClounProj.Controllers
             return View();
         }
 
-        public ViewResult GetALlBooks()
+        public async Task<ViewResult> GetALlBooks()
         {
-            var bookList = _newBookRepository.GetALlBooks();
+            var bookList =await _newBookRepository.GetALlBooks();
             return View(bookList);
         }
         [Route("BookDetails",Name = "BookDetails")]
-        public ViewResult GetBookById(int id,string nameBook)
+        public async Task<ViewResult> GetBookById(int id,string nameBook)
         {
-            var bookById = _newBookRepository.GetBookById(id);
+            var bookById = await _newBookRepository.GetBookById(id);
             return View(bookById);
         }
 
@@ -48,11 +48,11 @@ namespace FirstClounProj.Controllers
             return _newBookRepository.SearchBook(title, authorName);
         }
 
-        public ViewResult TestDynamicView()
+        public async Task<ViewResult> TestDynamicView()
         {
             //var bookById = _newBookRepository.GetBookById(id);
             dynamic data = new ExpandoObject();
-            data.book = _newBookRepository.GetBookById(1);
+            data.book = await _newBookRepository.GetBookById(1);
             data.name = "Bissou";
             return View(data);
         }

@@ -14,5 +14,7 @@ namespace FirstClounProj.Models
         public string bookCategory { get; set; }
         public int bookTotalPages { get; set; }
         public string bookLanguage { get; set; }
+        public DateTime? createdDate { get; set; }
+        public DateTime? updateDate { get; set; }
     }
 }
