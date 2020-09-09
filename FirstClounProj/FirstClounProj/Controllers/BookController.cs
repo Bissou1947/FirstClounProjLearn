@@ -31,6 +31,7 @@ namespace FirstClounProj.Controllers
                     return RedirectToAction("AddNewBook", new { check = true, bookId = value });
                 }
             }
+            ModelState.AddModelError("","Please fill the Errors fields");
             return View(NewBook);
         }
 

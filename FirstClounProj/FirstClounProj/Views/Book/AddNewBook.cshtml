@@ -24,6 +24,9 @@
      }
 
     <form method="post" asp-controller="Book" asp-action="AddNewBook">
+        <div asp-validation-summary="ModelOnly" class="text-white bg-danger">
+
+        </div>
         <div class="form-group">
             <label asp-for="bookTitle"></label>
             <input asp-for="bookTitle" class="form-control" />
