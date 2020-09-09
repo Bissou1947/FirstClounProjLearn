@@ -24,11 +24,14 @@ namespace FirstClounProj.Controllers
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel NewBook)
         {
-            int value=await _newBookRepository.AddNewBook(NewBook);
-            if (value>0) {
-                return RedirectToAction("AddNewBook",new { check=true, bookId=value });
+            if (ModelState.IsValid) {
+                int value = await _newBookRepository.AddNewBook(NewBook);
+                if (value > 0)
+                {
+                    return RedirectToAction("AddNewBook", new { check = true, bookId = value });
+                }
             }
-            return View();
+            return View(NewBook);
         }
 
         public async Task<ViewResult> GetALlBooks()

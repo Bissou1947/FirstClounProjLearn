@@ -13,7 +13,7 @@
 <div class="container">
     <h1 class="h1 text-center">Add New Book</h1>
 
-    @if (ViewBag.CheckSuccess) { 
+    @if (ViewBag.CheckSuccess == true) { 
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Success!</strong> The new book is add Successfully. <br />
             Click on <a asp-controller="Book" asp-action="GetBookById" asp-route-id="@ViewBag.GetBookId">detailes</a> to see this book informations.
@@ -27,26 +27,32 @@
         <div class="form-group">
             <label asp-for="bookTitle"></label>
             <input asp-for="bookTitle" class="form-control" />
+            <span asp-validation-for="bookTitle" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="bookAuthor"></label>
             <input asp-for="bookAuthor" class="form-control" />
+            <span asp-validation-for="bookAuthor" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="bookCategory"></label>
             <input asp-for="bookCategory" class="form-control" />
+            <span asp-validation-for="bookCategory" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="bookLanguage"></label>
             <input asp-for="bookLanguage" class="form-control" />
+            <span asp-validation-for="bookLanguage" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="bookTotalPages"></label>
             <input asp-for="bookTotalPages" class="form-control" />
+            <span asp-validation-for="bookTotalPages" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="bookDescription"></label>
             <textarea asp-for="bookDescription" class="form-control"></textarea>
+            <span asp-validation-for="bookDescription" class="text-danger"></span>
         </div>
         <div class="form-group">
             <input type="submit" value="Add New Book" class="btn btn-outline-success"/>
