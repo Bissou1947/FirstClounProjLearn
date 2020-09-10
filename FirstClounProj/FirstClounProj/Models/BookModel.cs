@@ -31,6 +31,8 @@ namespace FirstClounProj.Models
         [Required]
         [Display(Name = "Book Language")]
         public string bookLanguage { get; set; }
+        [Required]
+        public List<string> bookLanguageList { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime? createdDate { get; set; }
