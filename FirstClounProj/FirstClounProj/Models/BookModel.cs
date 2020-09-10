@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstClounProj.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -28,11 +29,15 @@ namespace FirstClounProj.Models
         [Required]
         [Display(Name = "Book TotalPages")]
         public int? bookTotalPages { get; set; }
+    
+        public string bookLanguage { get; set; }
+
+        //...for multiple select in dropdawnlist
+        //public List<string> bookLanguageList { get; set; }
+
         [Required]
         [Display(Name = "Book Language")]
-        public string bookLanguage { get; set; }
-        [Required]
-        public List<string> bookLanguageList { get; set; }
+        public BookLanguageEnum bookLanguage1 { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime? createdDate { get; set; }

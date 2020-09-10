@@ -20,7 +20,7 @@ namespace FirstClounProj.Repository
             bookAuthor=NewBook.bookAuthor,
             bookCategory=NewBook.bookCategory,
             bookDescription=NewBook.bookDescription,
-            bookLanguage=NewBook.bookLanguage,
+            bookLanguage=NewBook.bookLanguage1.ToString(),
             bookTitle=NewBook.bookTitle,
             bookTotalPages=NewBook.bookTotalPages.HasValue? NewBook.bookTotalPages.Value:0,
             createdDate=DateTime.UtcNow,

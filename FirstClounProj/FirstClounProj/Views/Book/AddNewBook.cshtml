@@ -1,4 +1,5 @@
-﻿@model BookModel
+﻿@using FirstClounProj.Enums
+@model BookModel
 @{
     ViewData["Title"] = "Add New Book";
 }
@@ -43,11 +44,11 @@
             <span asp-validation-for="bookCategory" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="bookLanguageList"></label>
-            <select asp-for="bookLanguageList" class="form-control" asp-items="@ViewBag.DDBL" multiple>
+            <label asp-for="bookLanguage1"></label>
+            <select asp-for="bookLanguage1" class="form-control" asp-items="Html.GetEnumSelectList<BookLanguageEnum>()">
                 <option value="">--Select Language Please--</option>
            </select>
-            <span asp-validation-for="bookLanguageList" class="text-danger"></span>
+            <span asp-validation-for="bookLanguage1" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="bookTotalPages"></label>
