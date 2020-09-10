@@ -91,5 +91,21 @@ namespace FirstClounProj.Repository
                      new BookModel(){bookAuthor="Bassima Al-alem",bookTitle="English",bookId=6 ,bookDescription="Some Description6",bookCategory="Learning",bookLanguage="Enflish",bookTotalPages=50}
             };
         }
+
+
+        //................For Dropdawn Book Laguage..........................
+        public List<bookLanguageModel> bookLangPublic()
+        {
+            return  bookLangPrivate();
+        }
+        private List<bookLanguageModel> bookLangPrivate()
+        {
+            return new List<bookLanguageModel>()
+            {
+                new bookLanguageModel(){bookLanguageId=1,bookLanguageName="Arabic" },
+                new bookLanguageModel(){bookLanguageId=2,bookLanguageName="Turkish"  },
+                new bookLanguageModel(){ bookLanguageId=3,bookLanguageName="Pakistan" }
+            };
+        }
     }
 }

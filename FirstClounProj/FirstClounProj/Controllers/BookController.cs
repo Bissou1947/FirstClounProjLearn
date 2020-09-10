@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FirstClounProj.Models;
 using FirstClounProj.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FirstClounProj.Controllers
 {
@@ -19,6 +20,15 @@ namespace FirstClounProj.Controllers
         {
             ViewBag.CheckSuccess = check;
             ViewBag.GetBookId = bookId;
+
+            //ViewBag.DDBL = new SelectList(_newBookRepository.bookLangPublic(), "bookLanguageId", "bookLanguageName");
+
+            ViewBag.DDBL = _newBookRepository.bookLangPublic().Select(a => new SelectListItem()
+            {
+                Text = a.bookLanguageName,
+                Value = a.bookLanguageId.ToString()
+            }).ToList();
+
             return View();
         }
         [HttpPost]
@@ -31,6 +41,14 @@ namespace FirstClounProj.Controllers
                     return RedirectToAction("AddNewBook", new { check = true, bookId = value });
                 }
             }
+
+            //ViewBag.DDBL = new SelectList(_newBookRepository.bookLangPublic(), "bookLanguageId", "bookLanguageName");
+
+            ViewBag.DDBL = _newBookRepository.bookLangPublic().Select(a => new SelectListItem()
+            {
+                Text = a.bookLanguageName,
+                Value = a.bookLanguageId.ToString()
+            }).ToList();
             ModelState.AddModelError("","Please fill the Errors fields");
             return View(NewBook);
         }

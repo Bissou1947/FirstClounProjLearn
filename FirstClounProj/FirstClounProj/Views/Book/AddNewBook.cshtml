@@ -44,7 +44,9 @@
         </div>
         <div class="form-group">
             <label asp-for="bookLanguage"></label>
-            <input asp-for="bookLanguage" class="form-control" />
+            <select asp-for="bookLanguage" class="form-control" asp-items="@ViewBag.DDBL">
+                <option value="">--Select Language Please--</option>
+           </select>
             <span asp-validation-for="bookLanguage" class="text-danger"></span>
         </div>
         <div class="form-group">
