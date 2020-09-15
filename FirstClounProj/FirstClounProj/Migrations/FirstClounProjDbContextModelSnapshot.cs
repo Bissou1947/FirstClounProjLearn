@@ -26,6 +26,9 @@ namespace FirstClounProj.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("LanguageslanguageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("bookAuthor")
                         .HasColumnType("nvarchar(max)");
 
@@ -35,8 +38,8 @@ namespace FirstClounProj.Migrations
                     b.Property<string>("bookDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("bookLanguage")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("bookLanguageId")
+                        .HasColumnType("int");
 
                     b.Property<string>("bookTitle")
                         .HasColumnType("nvarchar(max)");
@@ -52,7 +55,34 @@ namespace FirstClounProj.Migrations
 
                     b.HasKey("bookId");
 
+                    b.HasIndex("LanguageslanguageId");
+
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("FirstClounProj.Data.Languages", b =>
+                {
+                    b.Property<int>("languageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("languageDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("languageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("languageId");
+
+                    b.ToTable("Languages");
+                });
+
+            modelBuilder.Entity("FirstClounProj.Data.Books", b =>
+                {
+                    b.HasOne("FirstClounProj.Data.Languages", "Languages")
+                        .WithMany("Books")
+                        .HasForeignKey("LanguageslanguageId");
                 });
 #pragma warning restore 612, 618
         }

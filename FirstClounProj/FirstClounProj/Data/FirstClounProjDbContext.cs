@@ -15,6 +15,7 @@ namespace FirstClounProj.Data
         }
 
         public DbSet<Books> Books { get; set; }
+        public DbSet<Languages> Languages { get; set; }
 
         //this ignored because we usethe code is startup.cs in ConfigureServices method
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

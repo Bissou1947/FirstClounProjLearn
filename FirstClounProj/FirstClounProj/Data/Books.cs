@@ -15,8 +15,11 @@ namespace FirstClounProj.Data
         public string bookDescription { get; set; }
         public string bookCategory { get; set; }
         public int bookTotalPages { get; set; }
-        public string bookLanguage { get; set; }
+        
+        public int bookLanguageId { get; set; }
         public DateTime? createdDate { get; set; }
         public DateTime? updateDate { get; set; }
+
+        public Languages Languages { get; set; }
     }
 }

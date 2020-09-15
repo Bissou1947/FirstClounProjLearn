@@ -20,11 +20,11 @@ namespace FirstClounProj.Repository
             bookAuthor=NewBook.bookAuthor,
             bookCategory=NewBook.bookCategory,
             bookDescription=NewBook.bookDescription,
-            bookLanguage=NewBook.bookLanguage1.ToString(),
+            bookLanguageId=NewBook.bookLanguageId,
             bookTitle=NewBook.bookTitle,
             bookTotalPages=NewBook.bookTotalPages.HasValue? NewBook.bookTotalPages.Value:0,
             createdDate=DateTime.UtcNow,
-            updateDate=DateTime.UtcNow
+            updateDate=DateTime.UtcNow,
             };
            await _context.Books.AddAsync(newB);
            await _context.SaveChangesAsync();
@@ -42,7 +42,7 @@ namespace FirstClounProj.Repository
                         bookAuthor = book.bookAuthor,
                         bookCategory = book.bookCategory,
                         bookDescription = book.bookDescription,
-                        bookLanguage = book.bookLanguage,
+                        bookLanguageId = book.bookLanguageId,
                         bookTitle = book.bookTitle,
                         bookTotalPages = book.bookTotalPages,
                         createdDate = book.createdDate,
@@ -58,54 +58,56 @@ namespace FirstClounProj.Repository
         public async Task<BookModel> GetBookById(int id)
         {
             var getBookDB = await _context.Books.FindAsync(id);
+            var getLanguageDB = await _context.Languages.FindAsync(getBookDB.bookLanguageId);
             if (getBookDB != null) {
                 var booksToBookModel = new BookModel()
-                {   bookId = getBookDB.bookId,
+                { bookId = getBookDB.bookId,
                     bookAuthor = getBookDB.bookAuthor,
                     bookCategory = getBookDB.bookCategory,
                     bookDescription = getBookDB.bookDescription,
-                    bookLanguage = getBookDB.bookLanguage,
+                    //bookLanguageId = getBookDB.bookLanguageId,
                     bookTitle = getBookDB.bookTitle,
                     bookTotalPages = getBookDB.bookTotalPages,
                     createdDate = getBookDB.createdDate,
-                    updateDate = getBookDB.updateDate
+                    updateDate = getBookDB.updateDate,
+                    Languages = getLanguageDB
                 };
                 return booksToBookModel;
             }
             return null;
         }
 
-        public List<BookModel> SearchBook(string title,string authorName)
-        {
-            return SourceOfInformattions().Where(a=>a.bookTitle.Contains(title) || a.bookAuthor.Contains(authorName)).ToList();
-        }
+        //public List<BookModel> SearchBook(string title,string authorName)
+        //{
+        //    return SourceOfInformattions().Where(a=>a.bookTitle.Contains(title) || a.bookAuthor.Contains(authorName)).ToList();
+        //}
 
-        private List<BookModel> SourceOfInformattions() {
-            return new List<BookModel>()
-            {
-                new BookModel(){bookAuthor="Nassir Al-alem",bookTitle="hearts years",bookId=1 ,bookDescription="Some Description1",bookCategory="Reality",bookLanguage="Arabic",bookTotalPages=100},
-                 new BookModel(){bookAuthor="Bassil Al-alem",bookTitle="C# Learning",bookId=2 ,bookDescription="Some Description2",bookCategory="Sience",bookLanguage="Turkish",bookTotalPages=250},
-                  new BookModel(){bookAuthor="Laytgh Al-alem",bookTitle="Econimic",bookId=3 ,bookDescription="Some Description3",bookCategory="Econimic",bookLanguage="Pakistan",bookTotalPages=150},
-                   new BookModel(){bookAuthor="Saba Al-alem",bookTitle="Humanity rights",bookId=4 ,bookDescription="Some Description4",bookCategory="Humanity",bookLanguage="Afhnistan",bookTotalPages=350},
-                    new BookModel(){bookAuthor="Majd Al-alem",bookTitle="Communications",bookId=5 ,bookDescription="Some Description5",bookCategory="Sience",bookLanguage="Arabic",bookTotalPages=200},
-                     new BookModel(){bookAuthor="Bassima Al-alem",bookTitle="English",bookId=6 ,bookDescription="Some Description6",bookCategory="Learning",bookLanguage="Enflish",bookTotalPages=50}
-            };
-        }
+        //private List<BookModel> SourceOfInformattions() {
+        //    return new List<BookModel>()
+        //    {
+        //        new BookModel(){bookAuthor="Nassir Al-alem",bookTitle="hearts years",bookId=1 ,bookDescription="Some Description1",bookCategory="Reality",bookLanguage="Arabic",bookTotalPages=100},
+        //         new BookModel(){bookAuthor="Bassil Al-alem",bookTitle="C# Learning",bookId=2 ,bookDescription="Some Description2",bookCategory="Sience",bookLanguage="Turkish",bookTotalPages=250},
+        //          new BookModel(){bookAuthor="Laytgh Al-alem",bookTitle="Econimic",bookId=3 ,bookDescription="Some Description3",bookCategory="Econimic",bookLanguage="Pakistan",bookTotalPages=150},
+        //           new BookModel(){bookAuthor="Saba Al-alem",bookTitle="Humanity rights",bookId=4 ,bookDescription="Some Description4",bookCategory="Humanity",bookLanguage="Afhnistan",bookTotalPages=350},
+        //            new BookModel(){bookAuthor="Majd Al-alem",bookTitle="Communications",bookId=5 ,bookDescription="Some Description5",bookCategory="Sience",bookLanguage="Arabic",bookTotalPages=200},
+        //             new BookModel(){bookAuthor="Bassima Al-alem",bookTitle="English",bookId=6 ,bookDescription="Some Description6",bookCategory="Learning",bookLanguage="Enflish",bookTotalPages=50}
+        //    };
+        //}
 
 
         //................For Dropdawn Book Laguage..........................
-        public List<bookLanguageModel> bookLangPublic()
-        {
-            return  bookLangPrivate();
-        }
-        private List<bookLanguageModel> bookLangPrivate()
-        {
-            return new List<bookLanguageModel>()
-            {
-                new bookLanguageModel(){bookLanguageId=1,bookLanguageName="Arabic" },
-                new bookLanguageModel(){bookLanguageId=2,bookLanguageName="Turkish"  },
-                new bookLanguageModel(){ bookLanguageId=3,bookLanguageName="Pakistan" }
-            };
-        }
+        //public List<LanguageModel> bookLangPublic()
+        //{
+        //    return  bookLangPrivate();
+        //}
+        //private List<LanguageModel> bookLangPrivate()
+        //{
+        //    return new List<LanguageModel>()
+        //    {
+        //        new bookLanguageModel(){bookLanguageId=1,bookLanguageName="Arabic" },
+        //        new bookLanguageModel(){bookLanguageId=2,bookLanguageName="Turkish"  },
+        //        new bookLanguageModel(){ bookLanguageId=3,bookLanguageName="Pakistan" }
+        //    };
+        //}
     }
 }

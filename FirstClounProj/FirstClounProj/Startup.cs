@@ -23,6 +23,7 @@ namespace FirstClounProj
         {
             //depandancy anjiction for BookRepository in Book Controller
             services.AddScoped<BookRepository, BookRepository>();
+            services.AddScoped<LanguageRepository, LanguageRepository>();
 
             //we use code first approche
             //and for depandancy anjiction for FirstClounProjDbContext in Book Repository

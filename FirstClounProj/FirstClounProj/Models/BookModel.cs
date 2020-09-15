@@ -1,4 +1,5 @@
-﻿using FirstClounProj.Enums;
+﻿using FirstClounProj.Data;
+using FirstClounProj.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -29,20 +30,26 @@ namespace FirstClounProj.Models
         [Required]
         [Display(Name = "Book TotalPages")]
         public int? bookTotalPages { get; set; }
-    
-        public string bookLanguage { get; set; }
-
-        //...for multiple select in dropdawnlist
-        //public List<string> bookLanguageList { get; set; }
 
         [Required]
         [Display(Name = "Book Language")]
-        public BookLanguageEnum bookLanguage1 { get; set; }
+        public int bookLanguageId { get; set; }
 
+        public Languages Languages { get; set; }
+
+        //public int LanguageslanguageId { get; set; }
+
+        //...for multiple select in dropdawnlist
+        //public List<string> bookLanguageList { get; set; }
+        //public BookLanguageEnum bookLanguage1 { get; set; }
+        //...................................................//
+        [Display(Name = "Book Language")]
         [DataType(DataType.Date)]
         public DateTime? createdDate { get; set; }
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime? updateDate { get; set; }
+
+        //.....................here just for learn........................//
 
         [DataType(DataType.Password)]
         public string Password { get; set; }
@@ -51,5 +58,6 @@ namespace FirstClounProj.Models
         [Display(Name ="Email")]
         [EmailAddress]
         public string Email { get; set; }
+        //..................................................................//
     }
 }

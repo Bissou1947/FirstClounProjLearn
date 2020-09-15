@@ -13,15 +13,17 @@ namespace FirstClounProj.Controllers
     public class BookController : Controller
     {
         private readonly BookRepository _newBookRepository = null;
-        public BookController(BookRepository bookRepository) {
+        private readonly LanguageRepository _LanguageRepository = null;
+        public BookController(BookRepository bookRepository,LanguageRepository languageRepository) {
             _newBookRepository = bookRepository;
+            _LanguageRepository = languageRepository;
         }
-        public ViewResult AddNewBook(bool check=false,int bookId=0)
+        public async Task<ViewResult> AddNewBook(bool check=false,int bookId=0)
         {
             ViewBag.CheckSuccess = check;
             ViewBag.GetBookId = bookId;
 
-            //ViewBag.DDBL = new SelectList(_newBookRepository.bookLangPublic(), "bookLanguageId", "bookLanguageName");
+            ViewBag.DDBL = new SelectList(await _LanguageRepository.GetALlBooksLanguages(), "LanguageId", "LanguageName");
 
             //ViewBag.DDBL = _newBookRepository.bookLangPublic().Select(a => new SelectListItem()
             //{
@@ -75,7 +77,7 @@ namespace FirstClounProj.Controllers
             //    new SelectListItem(){Text="arabic15",Value="5",Group=group3 },
             //    new SelectListItem(){Text="arabic16",Value="6" ,Group=group3}
             //};
-
+            ViewBag.DDBL = new SelectList(await _LanguageRepository.GetALlBooksLanguages(), "LanguageId", "LanguageName");
             ModelState.AddModelError("","Please fill the Errors fields");
             return View(NewBook);
         }
@@ -92,10 +94,10 @@ namespace FirstClounProj.Controllers
             return View(bookById);
         }
 
-        public List<BookModel> SearchBook(string title, string authorName)
-        {
-            return _newBookRepository.SearchBook(title, authorName);
-        }
+        //public List<BookModel> SearchBook(string title, string authorName)
+        //{
+        //    return _newBookRepository.SearchBook(title, authorName);
+        //}
 
         public async Task<ViewResult> TestDynamicView()
         {
